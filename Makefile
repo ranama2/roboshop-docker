@@ -16,3 +16,6 @@ all:
 	ansible-playbook -i cart.maksuduldevsecops.online, -e ansible_user=ec2-user -e ansible_password=DevOps321 roboshop.yml -e component_name=cart-docker -e env=$(env)
 	ansible-playbook -i shipping.maksuduldevsecops.online, -e ansible_user=ec2-user -e ansible_password=DevOps321 roboshop.yml -e component_name=shipping-docker -e env=$(env)
 	ansible-playbook -i payment.maksuduldevsecops.online, -e ansible_user=ec2-user -e ansible_password=DevOps321 roboshop.yml -e component_name=payment-docker -e env=$(env)
+
+destroy:
+	terraform destroy -auto-approve
