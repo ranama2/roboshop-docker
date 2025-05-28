@@ -25,10 +25,10 @@
 
 - name: Run Container
   community.docker.docker_container:
-    name: "{{ component }}"
+    name: "{{ component_name }}"
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ component }}
     state: started
     recreate: true
     ports:
       - "{{ app_port }}:{{ app_port }}"
-    env_file: /opt/{{ component }}.env
+    env_file: /opt/{{ component_name }}.env
