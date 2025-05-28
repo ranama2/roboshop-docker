@@ -26,7 +26,7 @@
 - name: Run Container
   community.docker.docker_container:
     name: "{{ component_name }}"
-    image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ component }}
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ component_name }}
     state: started
     recreate: true
     ports:
