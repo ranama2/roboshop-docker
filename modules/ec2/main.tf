@@ -10,7 +10,7 @@ terraform {
 resource "aws_instance" "instance" {
   ami                     = var.ami_id
   instance_type           = var.instance_type
-  vpc_security_group_ids  = [aws_security_group.main.id]
+  vpc_security_group_ids  = var.vpc_security_group_ids
 
   # root_block_device {
   #   volume_size = var.root_volume_size

@@ -7,5 +7,5 @@ module "ec2" {
   instance_type           = each.value["instance_type"]
   name                    = each.key
   zone_id                 = var.zone_id
-  ansible_role            = lookup(each.value, "ansible_role", each_key)
+  //ansible_role            = lookup(each.value, "ansible_role", each_key)
 }
