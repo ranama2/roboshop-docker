@@ -60,7 +60,7 @@ resource "aws_route53_record" "private" {
   type    = "A"
   zone_id = var.zone_id
   ttl     = 10
-  records = [aws_instance.tool.private_ip]
+  records = [aws_instance.instance.private_ip]
 }
 
 resource "aws_route53_record" "public" {
@@ -68,5 +68,5 @@ resource "aws_route53_record" "public" {
   type    = "A"
   zone_id = var.zone_id
   ttl     = 10
-  records = [aws_instance.tool.public_ip]
+  records = [aws_instance.instance.public_ip]
 }
