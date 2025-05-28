@@ -1,0 +1,14 @@
+[Unit]
+Description = {{ component_name | title }} Service
+[Service]
+User={{ service_username }}
+WorkingDirectory=/app
+{% for item in component_secrets|dict2items %}
+Environment={{ item.key }}={{ item.value }}
+{% endfor %}
+ExecStart={{ service_start_command }}
+ExecStop=/bin/kill -9 $MAINPID
+SyslogIdentifier={{ component_name }}
+
+[Install]
+WantedBy=multi-user.target

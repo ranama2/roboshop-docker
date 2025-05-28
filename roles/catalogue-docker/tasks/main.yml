@@ -1,0 +1,14 @@
+- name: Load docker
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: docker
+  vars:
+    app_port: 8080
+
+- name: Load Schema
+  community.docker.docker_container:
+    name: "catalogue-schema"
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+    state: started
+    recreate: true
+    env_file: /opt/catalogue
